@@ -14,7 +14,7 @@
   "consumes": [],
   "produces": [],
   "paths": {
-    "/healthCheck": {
+    "/api/healthCheck": {
       "get": {
         "tags": [],
         "description": "",
@@ -22,10 +22,38 @@
         "responses": {}
       }
     },
-    "/{username}": {
+    "/api/v1/users/{username}": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "users"
+        ],
+        "description": "Endpoint to fetch user by username",
+        "operationId": "getUser",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/v2/users/{username}": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "description": "Endpoint to fetch user by username",
+        "operationId": "getUser",
         "parameters": [
           {
             "name": "username",
